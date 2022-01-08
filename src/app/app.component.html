@@ -3,7 +3,7 @@
     <div id="eg2" class="container">
 
         <!-- headers -->
-        <div class="row py-1 d-none d-md-flex">
+        <div class="row py-1">
             <div class="col">
                 <b>Year</b>
             </div>
@@ -19,7 +19,7 @@
         </div>
 
         <!-- body -->
-        <div class="row py-1">
+        <div class="row py-1" *ngFor="let car of cars">
             <!-- action row-->
             <div class="col-md-3 order-md-12 text-right text-md-left">
                 <button class="btn btn-primary mx-1">👍</button>
@@ -27,50 +27,10 @@
             </div>
 
             <!-- data row-->
-            <div class="col-md-3"><b class="d-md-none">Year </b> 1999</div>
-            <div class="col-md-3"><b class="d-md-none">Make </b> Honda</div>
-            <div class="col-md-3"><b class="d-md-none">Model </b> Civic</div>
-        </div>
-        <div class="row py-1">
-            <!-- action row -->
-            <div class="col-md-3 order-md-12 text-right text-md-left">
-                <button class="btn btn-primary mx-1">👍</button>
-                <button class="btn btn-primary mx-1">👎</button>
-            </div>
-
-            <!-- data row -->
-            <div class="col-md-3"><b class="d-md-none">Year </b> 2005</div>
-            <div class="col-md-3"><b class="d-md-none">Make </b> Jeep</div>
-            <div class="col-md-3"><b class="d-md-none">Model </b> Wrangler</div>
+            <div class="col-md-3"><b class="d-md-none">Year </b> {{ car.year }}</div>
+            <div class="col-md-3"><b class="d-md-none">Make </b> {{car.make}}</div>
+            <div class="col-md-3"><b class="d-md-none">Model </b> {{ car.model}}</div>
         </div>
 
-    </div>
-</div>
-
-<!-- example  -->
-<div id="eg1" class="table d-none">
-
-    <div class="tr">
-        <div class="th">
-            <span>Year</span>
-        </div>
-        <div class="th">
-            <span>Make</span>
-        </div>
-        <div class="th">
-            <span>Model</span>
-        </div>
-    </div>
-
-    <div class="tr">
-        <div class="td"><span>Year </span> 1999</div>
-        <div class="td"><span>Make </span> Honda</div>
-        <div class="td"><span>Model </span> Civic</div>
-    </div>
-
-    <div class="tr">
-        <div class="td"><span>Year </span> 2005</div>
-        <div class="td"><span>Make </span> Jeep</div>
-        <div class="td"><span>Model </span> Wrangler</div>
     </div>
 </div>
