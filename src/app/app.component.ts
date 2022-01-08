@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 
 export interface ICars {
+    id: number;
     year: number;
     make: string;
     model: string;
+    ascSort?: boolean;
 }
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -14,8 +17,31 @@ export class AppComponent {
     title = 'ng12grid';
 
     cars: ICars[] = [
-        { 'year': 1999, 'make': 'Honda', 'model': 'Civic' },
-        { 'year': 2005, 'make': 'Jeep', 'model': 'Wrangler' },
-        { 'year': 2007, 'make': 'Subaru', 'model': 'WRX' },
-    ]
+        { id: 1, year: 1999, make: 'Honda', model: 'Civic' },
+        { id: 2, year: 2015, make: 'Ford', model: 'Escort' },
+        { id: 3, year: 1960, make: 'Jeep', model: 'Wrangler' },
+    ];
+
+    sortState: any = {
+        year: 'asc',
+        make: 'asc',
+        model: 'asc',
+    }
+
+    sortBy(prop: any) {
+        prop = prop.toLowerCase();
+
+        if (this.sortState[prop] === 'asc') {
+            console.log(prop, 'asc')
+            this.cars?.sort((a: any, b: any) => (a[prop] > b[prop]) ? 1 : ((b[prop] > a[prop]) ? -1 : 0));
+            this.sortState[prop] = 'des';
+        } else {
+            console.log(prop, 'des')
+            this.cars?.sort((a: any, b: any) => (a[prop] < b[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0));
+            this.sortState[prop] = 'asc';
+        }
+    }
 }
+
+//sort
+// https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
