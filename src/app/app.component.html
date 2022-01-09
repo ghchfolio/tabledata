@@ -1,64 +1,97 @@
-<div id="eg2" class="container">
+<div class="container">
 
-    <!-- sort by (mobile)-->
-    <div class="row d-flex d-md-none justify-content-end px-3">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-expanded="false">
-                Sorted by: {{ sortedBy }}
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a href="#" class="dropdown-item" (click)="sortBy('Year')">Year</a>
-                <a href="#" class="dropdown-item" (click)="sortBy('Make')">Make</a>
-                <a href="#" class="dropdown-item" (click)="sortBy('Model')">Model</a>
-                <a href="#" class="dropdown-item" (click)="sortBy('Color')">Color</a>
-                <a href="#" class="dropdown-item" (click)="sortBy('Desc')">Desc</a>
+    <div class="row d-none d-md-block mt-3">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Uber Responsive Tables</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Features</h6>
+                    <ul>
+                        <li>Create as many columns as you want, it'll display vertically on smaller screens</li>
+                        <li>On smaller screens, a dropdown menu appears for sorting</li>
+                        <li>Clicking column headers (or dropdown menu) sorts table (toggles between ascending/descending
+                            order)
+                        </li>
+                        <li>Optionally, table cells can be place at the top of each section for mobile (e.g. 'Actions'
+                            buttons)</li>
+                        <li>a11y friendly</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- table  -->
-    <table class="table mt-3 uber-table">
-        <thead class="thead-dark">
-            <tr class="d-none d-md-table-row">
-                <th (click)="sortBy('Year')">Year</th>
-                <th (click)="sortBy('Make')">Make</th>
-                <th (click)="sortBy('Model')">Model</th>
-                <th (click)="sortBy('Color')">Color</th>
-                <th (click)="sortBy('Desc')">Desc</th>
-                <th class="no-sort">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="d-flex flex-column d-md-table-row" *ngFor="let car of cars">
-                <td>
-                    <b class="d-md-none">Year:</b>
-                    {{ car.Year }}
-                </td>
-                <td>
-                    <b class="d-md-none">Make:</b>
-                    {{ car.Make }}
-                </td>
-                <td>
-                    <b class="d-md-none">Model:</b>
-                    {{ car.Model }}
-                </td>
-                <td>
-                    <b class="d-md-none">Color:</b>
-                    {{ car.Color }}
-                </td>
-                <td>
-                    <b class="d-md-none">Desc:</b>
-                    {{ car.Desc }}
-                </td>
-                <td class="order-first order-md-none" nowrap>
-                    <div class="text-right text-md-left mt-3 mt-md-0">
-                        <button class="btn btn-sm btn-outline-success mx-1">👍</button>
-                        <button class="btn btn-sm btn-outline-danger mx-1">👎</button>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="uber-table-container mt-3">
+        <!-- sort by menu (mobile)-->
+        <div class="row d-flex d-md-none justify-content-end px-3">
+            <div class="dropdown">
+                <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="sortedByMenuButton"
+                    data-toggle="dropdown" aria-expanded="false">
+                    Sorted by: {{ sortedBy }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="sortedByMenuButton">
+                    <a href="#" class="dropdown-item" (click)="sortBy('Year')">Year</a>
+                    <a href="#" class="dropdown-item" (click)="sortBy('Make')">Make</a>
+                    <a href="#" class="dropdown-item" (click)="sortBy('Model')">Model</a>
+                    <a href="#" class="dropdown-item" (click)="sortBy('Color')">Color</a>
+                    <a href="#" class="dropdown-item" (click)="sortBy('Desc')">Description</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- table data  -->
+        <table class="table mt-3 uber-table">
+            <thead class="thead-light">
+                <tr class="d-none d-md-table-row">
+                    <th>
+                        <a href="#" (click)="sortBy('Year')">Year</a>
+                    </th>
+                    <th (click)="sortBy('Make')">
+                        <a href="#">Make</a>
+                    </th>
+                    <th (click)="sortBy('Model')">
+                        <a href="#">Model</a>
+                    </th>
+                    <th (click)="sortBy('Color')">
+                        <a href="#">Color</a>
+                    </th>
+                    <th (click)="sortBy('Desc')">
+                        <a href="#">Description</a>
+                    </th>
+                    <th class="no-sort">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="d-flex flex-column d-md-table-row" *ngFor="let car of cars">
+                    <td>
+                        <b class="d-md-none">Year:</b>
+                        {{ car.Year }}
+                    </td>
+                    <td>
+                        <b class="d-md-none">Make:</b>
+                        {{ car.Make }}
+                    </td>
+                    <td>
+                        <b class="d-md-none">Model:</b>
+                        {{ car.Model }}
+                    </td>
+                    <td>
+                        <b class="d-md-none">Color:</b>
+                        {{ car.Color }}
+                    </td>
+                    <td>
+                        <b class="d-md-none">Desc:</b>
+                        {{ car.Desc }}
+                    </td>
+                    <td class="order-first order-md-none" nowrap>
+                        <div class="text-right text-md-left mt-3 mt-md-0">
+                            <button class="btn btn-sm btn-outline-success mx-1">👍</button>
+                            <button class="btn btn-sm btn-outline-danger mx-1">👎</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>
