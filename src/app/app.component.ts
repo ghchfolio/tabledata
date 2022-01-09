@@ -5,6 +5,7 @@ export interface ICars {
     year: number;
     make: string;
     model: string;
+    desc: string;
     ascSort?: boolean;
 }
 
@@ -17,9 +18,9 @@ export class AppComponent {
     title = 'ng12grid';
 
     cars: ICars[] = [
-        { id: 1, year: 1999, make: 'Honda', model: 'Civic' },
-        { id: 2, year: 2015, make: 'Ford', model: 'Escort' },
-        { id: 3, year: 1960, make: 'Jeep', model: 'Wrangler' },
+        { id: 1, year: 1999, make: 'Honda', model: 'Civic', desc: 'aaaa dkjhaa ka aka kakj kja kak kak akkkhaakj aa akjak akj' },
+        { id: 2, year: 2015, make: 'Ford', model: 'Escort', desc: 'bbb ljlj bbbuiyb bljbljbiy b blj blj lbb lbb ljbbbb bljljljoib' },
+        { id: 3, year: 1960, make: 'Jeep', model: 'Wrangler', desc: 'ccc ci ciyicuc iictc cic cc iiyc iic icitc.' },
     ];
 
     sortState: any = {
