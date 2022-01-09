@@ -17,8 +17,8 @@
             </div>
         </div>
 
-        <!-- sortable headers (desktop) -->
-        <div class="row d-none d-md-flex py-1">
+        <!-- sortable headers (desktop ) each should live w its data column -->
+        <!-- <div class="row d-none d-md-flex py-1">
             <div class="col">
                 <a href="javascript:void(0)" class="decoration-none" (click)="sortBy('year')"><b>Year</b></a>
             </div>
@@ -29,22 +29,53 @@
                 <a href="javascript:void(0)" class="decoration-none" (click)="sortBy('model')"><b>Model</b></a>
             </div>
             <div class="col">
+                <a href="javascript:void(0)" class="decoration-none" (click)="sortBy('desc')"><b>Desc</b></a>
+            </div>
+            <div class="col">
                 <b>Action</b>
             </div>
-        </div>
+        </div> -->
 
         <!-- body -->
-        <div class="row mt-3 py-1" *ngFor="let car of cars">
+        <div class="row mt-3 py-1" *ngFor="let car of cars; let i = index;">
             <!-- action row-->
-            <div class="col-md-3 order-md-12 text-right text-md-left">
-                <button class="btn btn-primary mx-1">👍</button>
-                <button class="btn btn-primary mx-1">👎</button>
+            <div class="col-md-2 order-md-12 text-right text-md-left">
+                <div *ngIf="i === 0">
+                    <a href="#" class="d-none d-md-block decoration-none" (click)="sortBy('desc')"><b>Action</b></a>
+                </div>
+                <div>
+                    <button class="btn btn-primary mx-1">👍</button>
+                    <button class="btn btn-primary mx-1">👎</button>
+                </div>
             </div>
 
             <!-- data row-->
-            <div class="col-md-3"><b class="d-md-none">Year </b> {{ car.year }}</div>
-            <div class="col-md-3"><b class="d-md-none">Make </b> {{car.make}}</div>
-            <div class="col-md-3"><b class="d-md-none">Model </b> {{ car.model}}</div>
+            <div class="col-md-2">
+                <div *ngIf="i === 0">
+                    <a href="#" class="d-none d-md-block decoration-none" (click)="sortBy('year')"><b>Year</b></a>
+                </div>
+                <b class="d-md-none">Year</b> {{ car.year }}
+            </div>
+            <div class="col-md-2">
+                <div *ngIf="i === 0">
+                    <a href="#" class="d-none d-md-block decoration-none" (click)="sortBy('make')"><b>Make</b></a>
+                </div>
+                <b class="d-md-none">Make </b> {{car.make}}
+            </div>
+            <div class="col-md-2">
+                <div *ngIf="i === 0">
+                    <a href="#" class="d-none d-md-block decoration-none" (click)="sortBy('model')"><b>Model</b></a>
+                </div>
+                <b class="d-md-none">Model </b> {{ car.model}}
+            </div>
+            <div class="col-md-4">
+                <div *ngIf="i === 0">
+                    <div *ngIf="i === 0">
+                        <a href="#" class="d-none d-md-block decoration-none" (click)="sortBy('desc')"><b>Desc</b></a>
+                    </div>
+                </div>
+                <b class="d-md-none">Desc </b> {{ car.desc}}
+            </div>
         </div>
 
     </div>
