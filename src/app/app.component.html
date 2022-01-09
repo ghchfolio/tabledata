@@ -1,82 +1,64 @@
-<!-- example  -->
-<div class="container p-2">
-    <div id="eg2" class="container">
+<div id="eg2" class="container">
 
-        <!-- sort by (mobile)-->
-        <div class="row d-flex d-md-none justify-content-end">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-expanded="false">
-                    Sort by
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a href="javascript:void(0)" class="dropdown-item" (click)="sortBy('year')">Year</a>
-                    <a href="javascript:void(0)" class="dropdown-item" (click)="sortBy('make')">Make</a>
-                    <a href="javascript:void(0)" class="dropdown-item" (click)="sortBy('model')">Model</a>
-                </div>
+    <!-- sort by (mobile)-->
+    <div class="row d-flex d-md-none justify-content-end px-3">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-expanded="false">
+                Sorted by: {{ sortedBy }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a href="#" class="dropdown-item" (click)="sortBy('Year')">Year</a>
+                <a href="#" class="dropdown-item" (click)="sortBy('Make')">Make</a>
+                <a href="#" class="dropdown-item" (click)="sortBy('Model')">Model</a>
+                <a href="#" class="dropdown-item" (click)="sortBy('Color')">Color</a>
+                <a href="#" class="dropdown-item" (click)="sortBy('Desc')">Desc</a>
             </div>
         </div>
-
-        <!-- sortable headers (desktop ) each should live w its data column -->
-        <!-- <div class="row d-none d-md-flex py-1">
-            <div class="col">
-                <a href="javascript:void(0)" class="decoration-none" (click)="sortBy('year')"><b>Year</b></a>
-            </div>
-            <div class="col">
-                <a href="javascript:void(0)" class="decoration-none" (click)="sortBy('make')"><b>Make</b></a>
-            </div>
-            <div class="col">
-                <a href="javascript:void(0)" class="decoration-none" (click)="sortBy('model')"><b>Model</b></a>
-            </div>
-            <div class="col">
-                <a href="javascript:void(0)" class="decoration-none" (click)="sortBy('desc')"><b>Desc</b></a>
-            </div>
-            <div class="col">
-                <b>Action</b>
-            </div>
-        </div> -->
-
-        <!-- body -->
-        <div class="row mt-3 py-1" *ngFor="let car of cars; let i = index;">
-            <!-- action row-->
-            <div class="col-md-2 order-md-12 text-right text-md-left">
-                <div *ngIf="i === 0">
-                    <a href="#" class="d-none d-md-block decoration-none" (click)="sortBy('desc')"><b>Action</b></a>
-                </div>
-                <div>
-                    <button class="btn btn-primary mx-1">👍</button>
-                    <button class="btn btn-primary mx-1">👎</button>
-                </div>
-            </div>
-
-            <!-- data row-->
-            <div class="col-md-2">
-                <div *ngIf="i === 0">
-                    <a href="#" class="d-none d-md-block decoration-none" (click)="sortBy('year')"><b>Year</b></a>
-                </div>
-                <b class="d-md-none">Year</b> {{ car.year }}
-            </div>
-            <div class="col-md-2">
-                <div *ngIf="i === 0">
-                    <a href="#" class="d-none d-md-block decoration-none" (click)="sortBy('make')"><b>Make</b></a>
-                </div>
-                <b class="d-md-none">Make </b> {{car.make}}
-            </div>
-            <div class="col-md-2">
-                <div *ngIf="i === 0">
-                    <a href="#" class="d-none d-md-block decoration-none" (click)="sortBy('model')"><b>Model</b></a>
-                </div>
-                <b class="d-md-none">Model </b> {{ car.model}}
-            </div>
-            <div class="col-md-4">
-                <div *ngIf="i === 0">
-                    <div *ngIf="i === 0">
-                        <a href="#" class="d-none d-md-block decoration-none" (click)="sortBy('desc')"><b>Desc</b></a>
-                    </div>
-                </div>
-                <b class="d-md-none">Desc </b> {{ car.desc}}
-            </div>
-        </div>
-
     </div>
+
+    <!-- table  -->
+    <table class="table mt-3 uber-table">
+        <thead class="thead-dark">
+            <tr class="d-none d-md-table-row">
+                <th (click)="sortBy('Year')">Year</th>
+                <th (click)="sortBy('Make')">Make</th>
+                <th (click)="sortBy('Model')">Model</th>
+                <th (click)="sortBy('Color')">Color</th>
+                <th (click)="sortBy('Desc')">Desc</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="d-flex flex-column d-md-table-row" *ngFor="let car of cars; let i = index;">
+                <td>
+                    <b class="d-md-none">Year:</b>
+                    {{ car.Year }}
+                </td>
+                <td>
+                    <b class="d-md-none">Make:</b>
+                    {{ car.Make }}
+                </td>
+                <td>
+                    <b class="d-md-none">Model:</b>
+                    {{ car.Model }}
+                </td>
+                <td>
+                    <b class="d-md-none">Color:</b>
+                    {{ car.Color }}
+                </td>
+                <td>
+                    <b class="d-md-none">Desc:</b>
+                    {{ car.Desc }}
+                </td>
+                <td class="order-first order-md-none" nowrap>
+                    <div class="text-right text-md-left mt-3 mt-md-0">
+                        <button class="btn btn-primary mx-1">👍</button>
+                        <button class="btn btn-primary mx-1">👎</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
 </div>
