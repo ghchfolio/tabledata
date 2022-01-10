@@ -7,13 +7,15 @@
                     <h5 class="card-title">Uber Responsive Tables</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Features</h6>
                     <ul>
-                        <li>Create as many columns as you want, it'll display vertically on smaller screens</li>
-                        <li>On smaller screens, a dropdown menu appears for sorting</li>
-                        <li>Clicking column headers (or dropdown menu) sorts table (toggles between ascending/descending
-                            order)
+                        <li>Table data - no matter how many - are neatly displayed on smaller view-ports</li>
+                        <li>On smaller view-ports, a dropdown menu appears for sorting</li>
+                        <li>Clicking column headers (or dropdown menu) sorts the relevant column
                         </li>
-                        <li>Optionally, table cells can be place at the top of each section for mobile (e.g. 'Actions'
-                            buttons)</li>
+                        <li>Continuously clicking column headers (or dropdown menu) toggles between ascending/descending
+                            sort
+                            order)</li>
+                        <li>Optionally, table cells (e.g. the 'Actions' buttons) can be placed at the top of each
+                            section on smaller view-ports</li>
                         <li>a11y friendly</li>
                     </ul>
                 </div>
@@ -46,19 +48,19 @@
                     <th>
                         <a href="#" (click)="sortBy('Year')">Year</a>
                     </th>
-                    <th (click)="sortBy('Make')">
-                        <a href="#">Make</a>
+                    <th>
+                        <a href="#" (click)="sortBy('Make')">Make</a>
                     </th>
-                    <th (click)="sortBy('Model')">
-                        <a href="#">Model</a>
+                    <th>
+                        <a href="#" (click)="sortBy('Model')">Model</a>
                     </th>
-                    <th (click)="sortBy('Color')">
-                        <a href="#">Color</a>
+                    <th>
+                        <a href="#" (click)="sortBy('Color')">Color</a>
                     </th>
-                    <th (click)="sortBy('Desc')">
-                        <a href="#">Description</a>
+                    <th>
+                        <a href="#" (click)="sortBy('Desc')">Description</a>
                     </th>
-                    <th class="no-sort">Actions</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
