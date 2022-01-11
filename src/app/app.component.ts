@@ -7,7 +7,6 @@ export interface ICars {
     Model: string;
     Color: string;
     Desc: string;
-    ascSort?: boolean;
 }
 
 @Component({
@@ -18,9 +17,9 @@ export interface ICars {
 export class AppComponent {
 
     cars: ICars[] = [
-        { Id: 1, Year: 1999, Make: 'Honda', Model: 'Civic', Color: 'white', Desc: 'aaaa dkjhaa ka aka kakj kja kak kak akkkhaakj aa akjak akj' },
-        { Id: 2, Year: 2015, Make: 'Ford', Model: 'Escort', Color: 'red', Desc: 'bbb ljlj bbbuiyb bljbljbiy b blj blj lbb lbb ljbbbb bljljljoib' },
-        { Id: 3, Year: 1960, Make: 'Jeep', Model: 'Wrangler', Color: 'blue', Desc: 'ccc ci ciyicuc iictc cic cc iiyc iic icitc.' },
+        { Id: 1, Year: 1999, Make: 'Honda', Model: 'Civic', Color: 'White', Desc: 'aaaa dkjhaa ka aka kakj kja kak kak akkkhaakj aa akjak akj' },
+        { Id: 2, Year: 2015, Make: 'Ford', Model: 'Escort', Color: 'Red', Desc: 'bbb ljlj bbbuiyb bljbljbiy b blj blj lbb lbb ljbbbb bljljljoib' },
+        { Id: 3, Year: 1960, Make: 'Jeep', Model: 'Wrangler', Color: 'Blue', Desc: 'ccc ci ciyicuc iictc cic cc iiyc iic icitc.' },
     ];
 
     sortedBy = 'none';
@@ -44,6 +43,3 @@ export class AppComponent {
         }
     }
 }
-
-//sort
-// https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
